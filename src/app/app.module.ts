@@ -1,15 +1,17 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-/*
+
 import { environment } from '../environments/environment';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule, SETTINGS } from '@angular/fire/compat/firestore';
-import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AngularFireAuth, AngularFireAuthModule } from '@angular/fire/compat/auth';
 //import { FlashMessagesModule } from '@angular2-flash-messages';
 import { FormsModule } from '@angular/forms';
-import { FlashMessagesModule} from 'angular2-flash-messages/module';
-**/
+//import { FlashMessagesModule} from 'angular2-flash-messages/module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,6 +24,7 @@ import { RegistroComponent } from './componente/registro/registro.component';
 import { ConfiguracionComponent } from './componente/configuracion/configuracion.component';
 import { NoEncontradoComponent } from './componente/no-encontrado/no-encontrado.component';
 import { PiePaginaComponent } from './componente/pie-pagina/pie-pagina.component';
+import { cLienteServicio } from './servicios/cliente.service';
 
 @NgModule({
   declarations: [
@@ -38,9 +41,16 @@ import { PiePaginaComponent } from './componente/pie-pagina/pie-pagina.component
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig,'control-clientes'),
+    AngularFirestoreModule,
+    AngularFireAuthModule,
+    FormsModule,
+    //
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot(), // ToastrModule added
   ],
-  providers: [],
+  providers: [cLienteServicio],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

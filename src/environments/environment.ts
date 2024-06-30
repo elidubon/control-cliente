@@ -2,14 +2,12 @@
 export const environment = {
     production: false,
       firebaseConfig : {
-      apiKey: "AIzaSyDHnYV4sMjkJfrZfJ720pMBXRuZoysZjhQ",
-      authDomain: "listado-personas-cb360.firebaseapp.com",
-      databaseURL: "https://listado-personas-cb360-default-rtdb.firebaseio.com",
-      projectId: "listado-personas-cb360",
-      storageBucket: "listado-personas-cb360.appspot.com",
-      messagingSenderId: "940529840298",
-      appId: "1:940529840298:web:97c2eb8bac540f364c20d3",
-      measurementId: "G-EBFL7P2HDD"
+        apiKey: "AIzaSyCt807Itje8alihbg_6oxftiUdkF5xswdY",
+        authDomain: "control-clientes-8802b.firebaseapp.com",
+        projectId: "control-clientes-8802b",
+        storageBucket: "control-clientes-8802b.appspot.com",
+        messagingSenderId: "1034654895049",
+        appId: "1:1034654895049:web:59d0ccf50a9a1adc38f618"
     }
   };
 
