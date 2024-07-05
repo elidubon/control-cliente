@@ -7,21 +7,40 @@
 
 
         <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <ul *ngIf="isLoggedIn" class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item px-2">
                     <a routerLink="/" class="nav-link">Inicio</a>
                 </li>
             </ul>
+
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item dropdown me-3">
+                <li *ngIf="isLoggedIn" class="nav-item dropdown me-3">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                        <i class="fas fa-user"></i> Bienvenido
+                        <i class="fas fa-user"></i> Bienvenido {{loggedInUser}}
                     </a>
                     <div class="dropdown-menu">
-                        <a routerLink="/configuraciion" class="dropdown-item">
+                        <a routerLink="/configuracion" class="dropdown-item">
                             <i class="fas fa-cog"></i> Configuración
                         </a>
                     </div>
+                </li>
+
+                <li *ngIf="!isLoggedIn && permitirRegistro" class="nav-item">
+                    <a routerLink="/login" class="nav-link" routerLinkActive="router-lik-active">
+                        <i class="fas fa-user"></i> Login
+                    </a>
+                </li>
+
+                <li *ngIf="!isLoggedIn && permitirRegistro" class="nav-item">
+                    <a routerLink="/registrarse" class="nav-link" routerLinkActive="router-lik-active">
+                        <i class="fas fa-user"></i> Registro
+                    </a>
+                </li>
+
+                <li *ngIf="isLoggedIn" class="nav-item">
+                    <a style="cursor: pointer" (click)="logout()" class="nav-link">
+                        <i class="fas fa-user-times"></i> salir
+                    </a>
                 </li>
             </ul>
         </div>

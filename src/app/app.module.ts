@@ -25,6 +25,11 @@ import { ConfiguracionComponent } from './componente/configuracion/configuracion
 import { NoEncontradoComponent } from './componente/no-encontrado/no-encontrado.component';
 import { PiePaginaComponent } from './componente/pie-pagina/pie-pagina.component';
 import { cLienteServicio } from './servicios/cliente.service';
+import { LoginService } from './servicios/login.service';
+import { AuthGuard } from './guardianes/auth.guard';
+import { ConfiguracionServicio } from './servicios/configuracion.service';
+import { ConfiguracionGuard } from './guardianes/configracio.guard';
+
 
 @NgModule({
   declarations: [
@@ -50,7 +55,7 @@ import { cLienteServicio } from './servicios/cliente.service';
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(), // ToastrModule added
   ],
-  providers: [cLienteServicio],
+  providers: [cLienteServicio,LoginService,AuthGuard,ConfiguracionServicio,ConfiguracionGuard ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
